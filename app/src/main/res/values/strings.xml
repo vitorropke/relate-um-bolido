@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Relate um Bólido</string>
+    <string name="botao_acessar_tela_cadastro_relato">Botão de Acessar a Tela de Cadastro de Relato</string>
+    <string name="meus_relatos">Meus Relatos</string>
+    <string name="cadastrar_relato">Cadastrar Relato</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="data">Data</string>
+    <string name="hora">Hora</string>
+    <string name="duracao">Duração</string>
+    <string name="azimute_inicial">Azimute Inicial</string>
+    <string name="elevacao_inicial">Elevacao Inicial</string>
+    <string name="azimute_final">Azimute Final</string>
+    <string name="elevacao_final">Elevacao Final</string>
+    <string name="magnitude">Magnitude</string>
+    <string name="cor">Cor</string>
+    <string name="teve_som">Teve Som</string>
+    <string name="teve_rastro">Teve Rastro</string>
+    <string name="teve_explosao">Teve Explosão</string>
+    <string name="observacoes">Observações</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="editar_relato">Editar Relato</string>
+    <string name="editar">Editar</string>
+    <string name="apagar">Apagar</string>
+</resources>

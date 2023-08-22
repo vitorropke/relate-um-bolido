@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B4B4B4"
+    tools:context=".EdicaoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_tela_edicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/editar_relato"
+        app:titleTextColor="#000000" />
+
+    <EditText
+        android:id="@+id/entrada_latitude_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="-5.12"
+        android:ems="10"
+        android:hint="@string/latitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_longitude_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="-37.21"
+        android:ems="10"
+        android:hint="@string/longitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_latitude_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_data_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="2023/08/10"
+        android:ems="10"
+        android:hint="@string/data"
+        android:inputType="date"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_hora_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="21:54"
+        android:ems="10"
+        android:hint="@string/hora"
+        android:inputType="time"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_data_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_azimute_inicial_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="35"
+        android:ems="10"
+        android:hint="@string/azimute_inicial"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_longitude_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_elevacao_inicial_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="30"
+        android:ems="10"
+        android:hint="@string/elevacao_inicial"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_azimute_inicial_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_azimute_final_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="43"
+        android:ems="10"
+        android:hint="@string/azimute_final"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_hora_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_elevacao_final_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="21"
+        android:ems="10"
+        android:hint="@string/elevacao_final"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_azimute_final_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_duracao_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="2"
+        android:ems="10"
+        android:hint="@string/duracao"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_elevacao_inicial_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_magnitude_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="-5"
+        android:ems="10"
+        android:hint="@string/magnitude"
+        android:inputType="numberSigned"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_duracao_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_cor_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="Amarelo"
+        android:ems="10"
+        android:hint="@string/cor"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_magnitude_tela_edicao" />
+
+    <CheckBox
+        android:id="@+id/entrada_som_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_som"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_elevacao_final_tela_edicao" />
+
+    <CheckBox
+        android:id="@+id/entrada_rastro_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_rastro"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_som_tela_edicao" />
+
+    <CheckBox
+        android:id="@+id/entrada_explosao_tela_edicao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_explosao"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_rastro_tela_edicao" />
+
+    <EditText
+        android:id="@+id/entrada_observacoes_tela_edicao"
+        android:layout_width="380dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="Algumas notas a mais."
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/observacoes"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_explosao_tela_edicao" />
+
+    <Button
+        android:id="@+id/botao_editar_relato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_observacoes_tela_edicao" />
+
+    <Button
+        android:id="@+id/botao_apagar_relato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/apagar"
+        android:textColor="#FF0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_observacoes_tela_edicao" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

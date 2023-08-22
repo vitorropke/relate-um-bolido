@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B4B4B4"
+    tools:context=".CadastroActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/cadastrar_relato"
+        app:titleTextColor="#000000" />
+
+    <EditText
+        android:id="@+id/latitude"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="-5.12"
+        android:ems="10"
+        android:hint="@string/latitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_cadastro" />
+
+    <EditText
+        android:id="@+id/longitude"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="-37.21"
+        android:ems="10"
+        android:hint="@string/longitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latitude" />
+
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="2023/08/10"
+        android:ems="10"
+        android:hint="@string/data"
+        android:inputType="date"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_cadastro" />
+
+    <EditText
+        android:id="@+id/hora"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="21:54"
+        android:ems="10"
+        android:hint="@string/hora"
+        android:inputType="time"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data" />
+
+    <EditText
+        android:id="@+id/azimute_inicial"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="35"
+        android:ems="10"
+        android:hint="@string/azimute_inicial"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/longitude" />
+
+    <EditText
+        android:id="@+id/elevacao_inicial"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="30"
+        android:ems="10"
+        android:hint="@string/elevacao_inicial"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/azimute_inicial" />
+
+    <EditText
+        android:id="@+id/azimute_final"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="43"
+        android:ems="10"
+        android:hint="@string/azimute_final"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hora" />
+
+    <EditText
+        android:id="@+id/elevacao_final"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints="21"
+        android:ems="10"
+        android:hint="@string/elevacao_final"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/azimute_final" />
+
+    <EditText
+        android:id="@+id/duracao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="2"
+        android:ems="10"
+        android:hint="@string/duracao"
+        android:inputType="number"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/elevacao_inicial" />
+
+    <EditText
+        android:id="@+id/magnitude"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="-5"
+        android:ems="10"
+        android:hint="@string/magnitude"
+        android:inputType="numberSigned"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duracao" />
+
+    <EditText
+        android:id="@+id/cor"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:autofillHints="Amarelo"
+        android:ems="10"
+        android:hint="@string/cor"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/magnitude" />
+
+    <CheckBox
+        android:id="@+id/som"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_som"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/elevacao_final" />
+
+    <CheckBox
+        android:id="@+id/rastro"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_rastro"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/som" />
+
+    <CheckBox
+        android:id="@+id/explosao"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/teve_explosao"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rastro" />
+
+    <EditText
+        android:id="@+id/observacoes"
+        android:layout_width="380dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="Algumas notas a mais."
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/observacoes"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/explosao" />
+
+    <Button
+        android:id="@+id/botao_cadastrar_relato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/cadastrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observacoes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
