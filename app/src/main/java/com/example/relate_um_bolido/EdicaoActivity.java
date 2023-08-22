@@ -1,19 +1,18 @@
 package com.example.relate_um_bolido;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class EdicaoActivity extends AppCompatActivity {
@@ -64,13 +63,48 @@ public class EdicaoActivity extends AppCompatActivity {
 
         obterDefinirDados();
         botaoEditarRelato.setOnClickListener(view -> {
-            BancoDadosHelper bancoDadosHelper = new BancoDadosHelper(EdicaoActivity.this);
-            bancoDadosHelper.editarRelato(relato, String.valueOf(relato.getId()));
+            String textoEntradaData = entradaData.getText().toString();
+            String textoEntradaHora = entradaHora.getText().toString();
+
+            SimpleDateFormat formatoData = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm", Locale.getDefault());
+
+            Calendar calendar = Calendar.getInstance();
+            try {
+                Date dataDate = formatoData.parse(textoEntradaData);
+                Date horaDate = formatoHora.parse(textoEntradaHora);
+
+                if ((dataDate != null) && (horaDate != null)) {
+                    long milissegundos = dataDate.getTime() + horaDate.getTime();
+                    calendar.setTimeInMillis(milissegundos);
+                }
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            Relato relatoModificado = new Relato();
+            relatoModificado.setId(relato.getId());
+            relatoModificado.setLatitude(Double.parseDouble(entradaLatitude.getText().toString()));
+            relatoModificado.setLongitude(Double.parseDouble(entradaLongitude.getText().toString()));
+            relatoModificado.setDataHora(calendar);
+            relatoModificado.setAzimuteInicial(Integer.parseInt(entradaAzimuteInicial.getText().toString()));
+            relatoModificado.setElevacaoInicial(Integer.parseInt(entradaElevacaoInicial.getText().toString()));
+            relatoModificado.setAzimuteFinal(Integer.parseInt(entradaAzimuteFinal.getText().toString()));
+            relatoModificado.setElevacaoFinal(Integer.parseInt(entradaElevacaoFinal.getText().toString()));
+            relatoModificado.setDuracao(Integer.parseInt(entradaDuracao.getText().toString()));
+            relatoModificado.setMagnitude(Integer.parseInt(entradaMagnitude.getText().toString()));
+            relatoModificado.setCor(entradaCor.getText().toString());
+            relatoModificado.setSom(entradaSom.isChecked());
+            relatoModificado.setRastro(entradaRastro.isChecked());
+            relatoModificado.setExplosao(entradaExplosao.isChecked());
+            relatoModificado.setObservacoes(entradaObservacoes.getText().toString());
+
+            BancoDadosHelper bancoDadosHelper = new BancoDadosHelper(this);
+            bancoDadosHelper.editarRelato(relatoModificado, String.valueOf(relatoModificado.getId()));
+            finish();
         });
 
-        botaoApagarRelato.setOnClickListener(view -> {
-            mensagemConfirmacao();
-        });
+        botaoApagarRelato.setOnClickListener(view -> mensagemConfirmacao());
     }
 
     public void obterDefinirDados() {
@@ -85,11 +119,15 @@ public class EdicaoActivity extends AppCompatActivity {
                 getIntent().hasExtra("cor") && getIntent().hasExtra("som") &&
                 getIntent().hasExtra("rastro") && getIntent().hasExtra("explosao") &&
                 getIntent().hasExtra("observacoes")) {
+
             // obtendo dados
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(getIntent().getLongExtra("data_hora", 0));
+
             relato.setId(getIntent().getIntExtra("id", 0));
             relato.setLatitude(getIntent().getDoubleExtra("latitude", 0));
             relato.setLongitude(getIntent().getDoubleExtra("longitude", 0));
-            // get calendar
+            relato.setDataHora(calendar);
             relato.setAzimuteInicial(getIntent().getIntExtra("azimute_inicial", 0));
             relato.setElevacaoInicial(getIntent().getIntExtra("elevacao_inicial", 0));
             relato.setAzimuteFinal(getIntent().getIntExtra("azimute_final", 0));
@@ -103,21 +141,15 @@ public class EdicaoActivity extends AppCompatActivity {
             relato.setObservacoes(getIntent().getStringExtra("observacoes"));
 
             // preenchendo dados existentes
-            /*
-            Calendar calendar = relato.getDataHora();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
             String data = simpleDateFormat.format(calendar.getTime());
             simpleDateFormat.applyPattern("HH:mm");
             String hora = simpleDateFormat.format(calendar.getTime());
-            */
 
-            Toast.makeText(this, String.valueOf(relato.getId()), Toast.LENGTH_SHORT).show();
             entradaLatitude.setText(String.valueOf(relato.getLatitude()));
             entradaLongitude.setText(String.valueOf(relato.getLongitude()));
-            //entradaData.setText(data);
-            //entradaHora.setText(hora);
-            entradaData.setText("2023/10/10");
-            entradaHora.setText("17:58");
+            entradaData.setText(data);
+            entradaHora.setText(hora);
             entradaAzimuteInicial.setText(String.valueOf(relato.getAzimuteInicial()));
             entradaElevacaoInicial.setText(String.valueOf(relato.getElevacaoInicial()));
             entradaAzimuteFinal.setText(String.valueOf(relato.getAzimuteFinal()));

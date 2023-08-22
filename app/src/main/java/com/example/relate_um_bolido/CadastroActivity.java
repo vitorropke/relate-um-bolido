@@ -7,7 +7,11 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -51,18 +55,24 @@ public class CadastroActivity extends AppCompatActivity {
 
         botaoCadastrarRelato = findViewById(R.id.botao_cadastrar_relato);
         botaoCadastrarRelato.setOnClickListener(view -> {
-            Calendar calendar = Calendar.getInstance();
-            /*
-            SimpleDateFormat formatoData = new SimpleDateFormat("yyy-MM-dd", Locale.getDefault());
+            String textoEntradaData = entradaData.getText().toString();
+            String textoEntradaHora = entradaHora.getText().toString();
+
+            SimpleDateFormat formatoData = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
             SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm", Locale.getDefault());
 
+            Calendar calendar = Calendar.getInstance();
             try {
-                calendar.setTime(Objects.requireNonNull(formatoData.parse(entradaData.getText().toString())));
-                calendar.se
+                Date dataDate = formatoData.parse(textoEntradaData);
+                Date horaDate = formatoHora.parse(textoEntradaHora);
+
+                if ((dataDate != null) && (horaDate != null)) {
+                    long milissegundos = dataDate.getTime() + horaDate.getTime();
+                    calendar.setTimeInMillis(milissegundos);
+                }
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
-             */
 
             Relato relato = new Relato();
             relato.setLatitude(Double.parseDouble(entradaLatitude.getText().toString()));
@@ -80,8 +90,9 @@ public class CadastroActivity extends AppCompatActivity {
             relato.setExplosao(entradaExplosao.isChecked());
             relato.setObservacoes(entradaObservacoes.getText().toString());
 
-            BancoDadosHelper bancoDadosHelper = new BancoDadosHelper(CadastroActivity.this);
+            BancoDadosHelper bancoDadosHelper = new BancoDadosHelper(this);
             bancoDadosHelper.cadastrarRelato(relato);
+            finish();
         });
     }
 

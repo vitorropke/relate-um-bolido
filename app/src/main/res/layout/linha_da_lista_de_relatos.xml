@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linha_tabela_relatos"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,7 +20,6 @@
                 android:id="@+id/campo_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -34,7 +32,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Lat:"
+                android:text="@string/lat"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/campo_id"
                 app:layout_constraintTop_toTopOf="@+id/campo_id" />
@@ -43,7 +41,7 @@
                 android:id="@+id/campo_latitude"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="-5.12"
+                android:maxLength="5"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_latitude"
                 app:layout_constraintStart_toEndOf="@+id/texto_latitude"
                 app:layout_constraintTop_toTopOf="@+id/texto_latitude" />
@@ -53,7 +51,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Lon:"
+                android:text="@string/lon"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_id"
                 app:layout_constraintStart_toEndOf="@+id/campo_id" />
@@ -62,7 +60,7 @@
                 android:id="@+id/campo_longitude"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:text="-37.21"
+                android:maxLength="5"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_longitude"
                 app:layout_constraintStart_toEndOf="@+id/texto_longitude"
                 app:layout_constraintTop_toTopOf="@+id/texto_longitude" />
@@ -72,7 +70,7 @@
                 android:layout_width="18dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="AZ"
+                android:text="@string/az"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/campo_latitude"
                 app:layout_constraintTop_toTopOf="@+id/campo_id" />
@@ -81,7 +79,7 @@
                 android:id="@+id/texto_elevacao"
                 android:layout_width="18dp"
                 android:layout_height="wrap_content"
-                android:text="EL"
+                android:text="@string/el"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_id"
@@ -89,29 +87,28 @@
                 app:layout_constraintStart_toStartOf="@+id/texto_azimute" />
 
             <TextView
-                android:id="@+id/texto_fim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Fim"
-                app:layout_constraintBottom_toBottomOf="@+id/texto_inicio"
-                app:layout_constraintStart_toEndOf="@+id/texto_inicio"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/texto_inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Inicio"
+                android:text="@string/inicio"
                 app:layout_constraintStart_toEndOf="@+id/texto_azimute"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/texto_fim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/fim"
+                app:layout_constraintBottom_toBottomOf="@+id/texto_inicio"
+                app:layout_constraintStart_toEndOf="@+id/texto_inicio"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/campo_azimute_inicial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="120º"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_azimute"
                 app:layout_constraintEnd_toEndOf="@+id/texto_inicio"
                 app:layout_constraintStart_toStartOf="@+id/texto_inicio"
@@ -121,7 +118,6 @@
                 android:id="@+id/campo_elevacao_inicial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33º"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_elevacao"
                 app:layout_constraintEnd_toEndOf="@+id/texto_inicio"
                 app:layout_constraintStart_toStartOf="@+id/texto_inicio"
@@ -131,7 +127,6 @@
                 android:id="@+id/campo_azimute_final"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123º"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_azimute"
                 app:layout_constraintEnd_toEndOf="@+id/texto_fim"
                 app:layout_constraintStart_toStartOf="@+id/texto_fim"
@@ -141,7 +136,6 @@
                 android:id="@+id/campo_elevacao_final"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12º"
                 app:layout_constraintBottom_toBottomOf="@+id/texto_elevacao"
                 app:layout_constraintEnd_toEndOf="@+id/texto_fim"
                 app:layout_constraintStart_toStartOf="@+id/texto_fim"
@@ -152,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:text="D"
+                android:text="@string/d"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_data"
                 app:layout_constraintEnd_toStartOf="@+id/texto_magnitude"
@@ -162,7 +156,6 @@
                 android:id="@+id/campo_duracao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2s"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_hora"
                 app:layout_constraintEnd_toEndOf="@+id/texto_duracao"
                 app:layout_constraintStart_toStartOf="@+id/texto_duracao"
@@ -173,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:text="M"
+                android:text="@string/m"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_data"
                 app:layout_constraintEnd_toStartOf="@+id/campo_data"
@@ -183,7 +176,6 @@
                 android:id="@+id/campo_magnitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-7"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_hora"
                 app:layout_constraintEnd_toEndOf="@+id/texto_magnitude"
                 app:layout_constraintStart_toStartOf="@+id/texto_magnitude"
@@ -193,7 +185,6 @@
                 android:id="@+id/campo_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2023/08/10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/campo_id" />
 
@@ -201,7 +192,6 @@
                 android:id="@+id/campo_hora"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="21:54"
                 app:layout_constraintBottom_toBottomOf="@+id/campo_id"
                 app:layout_constraintEnd_toEndOf="parent" />
 

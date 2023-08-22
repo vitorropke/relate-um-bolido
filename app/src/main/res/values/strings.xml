@@ -22,4 +22,12 @@
     <string name="editar_relato">Editar Relato</string>
     <string name="editar">Editar</string>
     <string name="apagar">Apagar</string>
+    <string name="lat">Lat:</string>
+    <string name="lon">Lon:</string>
+    <string name="az">AZ</string>
+    <string name="el">EL</string>
+    <string name="inicio">Inicio</string>
+    <string name="fim">Fim</string>
+    <string name="d">D</string>
+    <string name="m">M</string>
 </resources>

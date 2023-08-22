@@ -1,6 +1,5 @@
 package com.example.relate_um_bolido;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -76,7 +75,7 @@ public class RelatoAdapter extends RecyclerView.Adapter<RelatoAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull RelatoAdapter.MyViewHolder holder, int position) {
         Calendar calendar = relatos.get(position).getDataHora();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
         String data = simpleDateFormat.format(calendar.getTime());
         simpleDateFormat.applyPattern("HH:mm");
         String hora = simpleDateFormat.format(calendar.getTime());
@@ -95,21 +94,21 @@ public class RelatoAdapter extends RecyclerView.Adapter<RelatoAdapter.MyViewHold
 
         holder.linearLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, EdicaoActivity.class);
-            intent.putExtra("id", String.valueOf(relatos.get(position).getId()));
-            intent.putExtra("latitude", String.valueOf(relatos.get(position).getLatitude()));
-            intent.putExtra("longitude", String.valueOf(relatos.get(position).getLongitude()));
-            intent.putExtra("data_hora", String.valueOf(relatos.get(position).getDataHora()));
-            intent.putExtra("azimute_inicial", String.valueOf(relatos.get(position).getAzimuteInicial()));
-            intent.putExtra("elevacao_inicial", String.valueOf(relatos.get(position).getElevacaoInicial()));
-            intent.putExtra("azimute_final", String.valueOf(relatos.get(position).getAzimuteFinal()));
-            intent.putExtra("elevacao_final", String.valueOf(relatos.get(position).getElevacaoFinal()));
-            intent.putExtra("duracao", String.valueOf(relatos.get(position).getDuracao()));
-            intent.putExtra("magnitude", String.valueOf(relatos.get(position).getMagnitude()));
-            intent.putExtra("cor", String.valueOf(relatos.get(position).getCor()));
-            intent.putExtra("som", String.valueOf(relatos.get(position).hasSom()));
-            intent.putExtra("rastro", String.valueOf(relatos.get(position).hasRastro()));
-            intent.putExtra("explosao", String.valueOf(relatos.get(position).hasExplosao()));
-            intent.putExtra("observacoes", String.valueOf(relatos.get(position).getObservacoes()));
+            intent.putExtra("id", relatos.get(position).getId());
+            intent.putExtra("latitude", relatos.get(position).getLatitude());
+            intent.putExtra("longitude", relatos.get(position).getLongitude());
+            intent.putExtra("data_hora", relatos.get(position).getDataHora().getTimeInMillis());
+            intent.putExtra("azimute_inicial", relatos.get(position).getAzimuteInicial());
+            intent.putExtra("elevacao_inicial", relatos.get(position).getElevacaoInicial());
+            intent.putExtra("azimute_final", relatos.get(position).getAzimuteFinal());
+            intent.putExtra("elevacao_final", relatos.get(position).getElevacaoFinal());
+            intent.putExtra("duracao", relatos.get(position).getDuracao());
+            intent.putExtra("magnitude", relatos.get(position).getMagnitude());
+            intent.putExtra("cor", relatos.get(position).getCor());
+            intent.putExtra("som", relatos.get(position).hasSom());
+            intent.putExtra("rastro", relatos.get(position).hasRastro());
+            intent.putExtra("explosao", relatos.get(position).hasExplosao());
+            intent.putExtra("observacoes", relatos.get(position).getObservacoes());
             activity.startActivityForResult(intent, 1);
         });
     }

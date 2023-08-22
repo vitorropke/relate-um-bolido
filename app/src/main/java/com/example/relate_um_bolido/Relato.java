@@ -23,27 +23,6 @@ public class Relato {
     public Relato() {
     }
 
-    public Relato(int id, double latitude, double longitude, Calendar dataHora, int azimuteInicial,
-                  int elevacaoInicial, int azimuteFinal, int elevacaoFinal, int duracao,
-                  int magnitude, String cor, boolean som, boolean rastro, boolean explosao,
-                  String observacoes) {
-        this.id = id;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.dataHora = dataHora;
-        this.azimuteInicial = azimuteInicial;
-        this.elevacaoInicial = elevacaoInicial;
-        this.azimuteFinal = azimuteFinal;
-        this.elevacaoFinal = elevacaoFinal;
-        this.duracao = duracao;
-        this.magnitude = magnitude;
-        this.cor = cor;
-        this.som = som;
-        this.rastro = rastro;
-        this.explosao = explosao;
-        this.observacoes = observacoes;
-    }
-
     public int getId() {
         return id;
     }
